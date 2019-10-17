@@ -29,6 +29,7 @@ public class AdminLout extends JFrame{
 					    ad.setLocationRelativeTo(null);
 					    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 						ad.setVisible(true);
+						ad.setResizable(false);
 						dispose();
 					}
 					else {

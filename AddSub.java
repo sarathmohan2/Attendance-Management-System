@@ -3,18 +3,21 @@ import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class AddSub extends JFrame {
 	AddSub(){
-		JPanel p1=new JPanel(new GridLayout(7,1));
+		JPanel p1=new JPanel(new GridLayout(8,1));
 		JLabel l1=new JLabel("Department : ");
 		String s[]= {"CSE","ECE","EEE","Mech"};
 		JComboBox l2=new JComboBox(s);
@@ -30,7 +33,42 @@ public class AddSub extends JFrame {
 		JTextField l12=new JTextField(10);
 		JLabel l13=new JLabel("Subject 6 : ");
 		JTextField l14=new JTextField(10);
-				
+		JLabel l15=new JLabel("Check Entered Details");
+		l15.setForeground(Color.RED.darker());
+		
+		JButton l16=new JButton("Submit");
+		l16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==l16) {
+					try {
+						File f1=new File("/home/sarathmohan/Documents/Attendance Management System/SubjectList.txt");
+						FileWriter fw=new FileWriter(f1,true);
+						String subdept=(String)l2.getSelectedItem();
+						String sub1=l4.getText();
+						String sub2=l6.getText();
+						String sub3=l8.getText();
+						String sub4=l10.getText();
+						String sub5=l12.getText();
+						String sub6=l14.getText();
+						String total=subdept+","+sub1+","+sub2+","+sub3+","+sub4+","+sub5+","+sub6+"\n";
+						fw.write(total);
+						fw.close();
+					}
+					catch(Exception f) {
+						JOptionPane.showMessageDialog(null,f);
+					}
+					JOptionPane.showMessageDialog(null,"Subjects Added !");
+					AddSub ad=new AddSub();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
+		
 		p1.add(l1);
 		p1.add(l2);
 		p1.add(l3);
@@ -45,6 +83,8 @@ public class AddSub extends JFrame {
 		p1.add(l12);
 		p1.add(l13);
 		p1.add(l14);
+		p1.add(l15);
+		p1.add(l16);
 		
 		JPanel p2=new JPanel(new GridLayout(8,1,10,5));
 		JLabel n1=new JLabel();
@@ -60,6 +100,7 @@ public class AddSub extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -76,6 +117,7 @@ public class AddSub extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -92,6 +134,7 @@ public class AddSub extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -108,6 +151,7 @@ public class AddSub extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}

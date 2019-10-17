@@ -7,9 +7,9 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
 
-public class FacLout extends JFrame{
+public class StudLout extends JFrame{
 	
-	FacLout(){
+	StudLout(){
 		JPanel p1=new JPanel(new FlowLayout(FlowLayout.CENTER,30,100));
 		JLabel l1=new JLabel("Username : ");
 		JTextField l2= new JTextField(10);

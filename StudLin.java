@@ -6,24 +6,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.	JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class AdminLin extends JFrame implements ActionListener{
+public class StudLin extends JFrame implements ActionListener{
 	
-	AdminLin(){
+	StudLin(){
 		JPanel p0=new JPanel();
 		JPanel p1=new JPanel(new GridLayout(6,1,10,5));
 		JLabel n1=new JLabel();
-		JButton m2=new JButton("Add Faculty");
+		JButton m2=new JButton("Home");
 		m2.setForeground(Color.BLUE.darker());
 		m2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m2.setHorizontalAlignment(JLabel.CENTER);
 		m2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource()==m2) {
-					AddFaculty ad =new AddFaculty();
+					Home ad =new Home();
 					ad.setSize(600,400);
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,14 +34,14 @@ public class AdminLin extends JFrame implements ActionListener{
 				
 			}
 		});
-		JButton m3=new JButton("Add Student");
+		JButton m3=new JButton("View Attendance");
 		m3.setForeground(Color.BLUE.darker());
 		m3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m3.setHorizontalAlignment(JLabel.CENTER);
 		m3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==m3) {
-					AddStud ad=new AddStud();
+					Attend1 ad=new Attend1();
 					ad.setSize(600,400);
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,23 +51,10 @@ public class AdminLin extends JFrame implements ActionListener{
 				}
 			}
 		});
-		JButton m4=new JButton("Add Subjects");
+		JButton m4=new JButton("Average");
 		m4.setForeground(Color.BLUE.darker());
 		m4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m4.setHorizontalAlignment(JLabel.CENTER);
-		m4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource()==m4) {
-					AddSub ad=new AddSub();
-					ad.setSize(600,400);
-				    ad.setLocationRelativeTo(null);
-				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					ad.setVisible(true);
-					ad.setResizable(false);
-					dispose();
-				}
-			}
-		});
 		JButton m5=new JButton("Logout");
 		m5.setForeground(Color.BLUE.darker());
 		m5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
