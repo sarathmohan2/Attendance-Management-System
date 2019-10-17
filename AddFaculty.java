@@ -3,18 +3,21 @@ import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class AddFaculty extends JFrame implements ActionListener{
 	AddFaculty(){
-		JPanel p1=new JPanel(new GridLayout(5,1));
+		JPanel p1=new JPanel(new GridLayout(6,1));
 		JLabel l1=new JLabel("Faculty Name : ");
 		JTextField l2=new JTextField(10);
 		JLabel l3=new JLabel("Faculty ID : ");
@@ -26,6 +29,40 @@ public class AddFaculty extends JFrame implements ActionListener{
 		JComboBox l8=new JComboBox(s);
 		JLabel l9=new JLabel("E-mail : ");
 		JTextField l10=new JTextField(10);
+		JLabel l11=new JLabel("Check Details Again ");
+		l11.setForeground(Color.RED.darker());
+		
+		JButton l12=new JButton("Submit");
+		l12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==l12) {
+					try {
+						File f1=new File("/home/sarathmohan/Documents/Attendance Management System/FacultyList.txt");
+						FileWriter fw=new FileWriter(f1,true);
+						String facname=l2.getText();
+						String facid=l4.getText();
+						String facpass=l6.getText();
+						String facdept=(String)l8.getSelectedItem();
+						String facmail=l10.getText();
+						String total=facname+","+facid+","+facpass+","+facdept+","+facmail+"\n";
+						fw.write(total);
+						fw.close();
+					}
+					catch(Exception f) {
+						JOptionPane.showMessageDialog(null,f);
+					}
+					JOptionPane.showMessageDialog(null,"Faculty Added !");
+					AddFaculty ad=new AddFaculty();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
+		
 		
 		p1.add(l1);
 		p1.add(l2);
@@ -37,6 +74,8 @@ public class AddFaculty extends JFrame implements ActionListener{
 		p1.add(l8);
 		p1.add(l9);
 		p1.add(l10);
+		p1.add(l11);
+		p1.add(l12);
 		
 		JPanel p2=new JPanel(new GridLayout(8,1,10,5));
 		JLabel n1=new JLabel();
@@ -52,6 +91,7 @@ public class AddFaculty extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -68,6 +108,7 @@ public class AddFaculty extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -88,6 +129,7 @@ public class AddFaculty extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -104,10 +146,11 @@ public class AddFaculty extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
-		});
+		});		
 		JButton m5=new JButton("Logout");
 		m5.setForeground(Color.BLUE.darker());
 		m5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

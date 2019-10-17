@@ -19,6 +19,7 @@ public class Home extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -33,6 +34,7 @@ public class Home extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}

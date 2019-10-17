@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.	JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -28,6 +28,7 @@ public class FacLin extends JFrame implements ActionListener{
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 				
@@ -39,7 +40,15 @@ public class FacLin extends JFrame implements ActionListener{
 		m3.setHorizontalAlignment(JLabel.CENTER);
 		m3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if(e.getSource()==m3) {
+					Attend1 ad=new Attend1();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
 			}
 		});
 		JButton m4=new JButton("Average");

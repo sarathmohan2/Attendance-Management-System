@@ -3,18 +3,21 @@ import java.awt.Cursor;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class AddStud extends JFrame {
 	AddStud(){
-		JPanel p1=new JPanel(new GridLayout(7,1));
+		JPanel p1=new JPanel(new GridLayout(8,1));
 		JLabel l1=new JLabel("Student Name : ");
 		JTextField l2=new JTextField(10);
 		JLabel l3=new JLabel("Roll no. : ");
@@ -30,6 +33,41 @@ public class AddStud extends JFrame {
 		JTextField l12=new JTextField(10);
 		JLabel l13=new JLabel("Semester : ");
 		JTextField l14=new JTextField(10);
+		JLabel l15=new JLabel("Check Details Again ");
+		l15.setForeground(Color.RED.darker());
+		
+		JButton l16=new JButton("Submit");
+		l16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==l16) {
+					try {
+						File f1=new File("/home/sarathmohan/Documents/Attendance Management System/StudentList.txt");
+						FileWriter fw=new FileWriter(f1,true);
+						String stuname=l2.getText();
+						String sturno=l4.getText();
+						String stupass=l6.getText();
+						String studob=l12.getText();
+						String studept=(String)l8.getSelectedItem();
+						String stusem=l14.getText();
+						String stumail=l10.getText();				
+						String total=stuname+","+sturno+","+stupass+","+studob+","+studept+","+stusem+","+stumail+"\n";
+						fw.write(total);
+						fw.close();
+					}
+					catch(Exception f) {
+						JOptionPane.showMessageDialog(null,f);
+					}
+					JOptionPane.showMessageDialog(null,"Student Added !");
+					AddStud ad=new AddStud();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
 		
 		p1.add(l1);
 		p1.add(l2);
@@ -45,6 +83,8 @@ public class AddStud extends JFrame {
 		p1.add(l14);
 		p1.add(l9);
 		p1.add(l10);
+		p1.add(l15);
+		p1.add(l16);
 		
 		JPanel p2=new JPanel(new GridLayout(8,1,10,5));
 		JLabel n1=new JLabel();
@@ -76,6 +116,7 @@ public class AddStud extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -92,6 +133,7 @@ public class AddStud extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
@@ -112,6 +154,7 @@ public class AddStud extends JFrame {
 				    ad.setLocationRelativeTo(null);
 				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					ad.setVisible(true);
+					ad.setResizable(false);
 					dispose();
 				}
 			}
