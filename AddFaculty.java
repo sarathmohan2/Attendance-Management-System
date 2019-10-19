@@ -155,6 +155,20 @@ public class AddFaculty extends JFrame implements ActionListener{
 		m5.setForeground(Color.BLUE.darker());
 		m5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m5.setHorizontalAlignment(JLabel.CENTER);
+		m5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==m5) {
+					JOptionPane.showMessageDialog(null,"You have successfully been logged out !");
+					Home ad=new Home();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
 		
 		p2.add(n1);
 		p2.add(n3);

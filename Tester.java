@@ -23,14 +23,13 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
-public class Attend2 extends JFrame{
+public class Tester extends JFrame{
 	
 	String[] stuname;
 	String[] sturno;
-	String[] studate;
 	int rcnt=0;
 	
-	Attend2(){
+	Tester(){
 		
 		JPanel p0=new JPanel();
 		p0.setLayout(null);
@@ -46,14 +45,13 @@ public class Attend2 extends JFrame{
 			rd.close();
 			stuname=new String[rcnt];
 			sturno=new String[rcnt];
-			studate=new String[rcnt];
 			
 			Scanner sc=new Scanner(f1);
 			sc.useDelimiter("\\n|,");
 			for(int i=0;i<rcnt;i++) {
 				sturno[i]=sc.next();
 				stuname[i]=sc.next();
-				studate[i]=sc.next();
+			
 			}
 			sc.close();
 		}
@@ -85,6 +83,8 @@ public class Attend2 extends JFrame{
         JRadioButton[] l4=new JRadioButton[rcnt];
         ButtonGroup[] l5=new ButtonGroup[rcnt];
         
+        String s1[]= {"R.No","Name","Present","Absent"};
+        
         for(int i=0;i<rcnt;i++) {
         	l1=new JLabel(sturno[i]);
         	l1.setHorizontalAlignment(JLabel.CENTER);
@@ -113,7 +113,6 @@ public class Attend2 extends JFrame{
         					String rno=sturno[i];
     						String name=stuname[i];
     						String attend;
-    						String date=studate[i];
     						if(l3[i].isSelected() && !(l4[i].isSelected())) {
         						attend="Present";
         					}
@@ -125,7 +124,7 @@ public class Attend2 extends JFrame{
         						check=false;
         						break;
         					}
-        					String total=rno+","+name+","+attend+","+date+"\n";
+        					String total=rno+","+name+","+attend+"\n";
         					fw.write(total);
         					fw.close();
         				}

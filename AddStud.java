@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 public class AddStud extends JFrame {
 	AddStud(){
-		JPanel p1=new JPanel(new GridLayout(8,1));
+		JPanel p1=new JPanel(new GridLayout(9,1));
 		JLabel l1=new JLabel("Student Name : ");
 		JTextField l2=new JTextField(10);
 		JLabel l3=new JLabel("Roll no. : ");
@@ -27,6 +27,8 @@ public class AddStud extends JFrame {
 		JLabel l7=new JLabel("Department : ");
 		String s[]= {"CSE","ECE","EEE","Mech"};
 		JComboBox l8=new JComboBox(s);
+		JLabel l17=new JLabel("Section : ");
+		JTextField l18=new JTextField(10);
 		JLabel l9=new JLabel("E-mail : ");
 		JTextField l10=new JTextField(10);
 		JLabel l11=new JLabel("D.O.B : ");
@@ -48,9 +50,10 @@ public class AddStud extends JFrame {
 						String stupass=l6.getText();
 						String studob=l12.getText();
 						String studept=(String)l8.getSelectedItem();
+						String stusec=l18.getText();
 						String stusem=l14.getText();
-						String stumail=l10.getText();				
-						String total=stuname+","+sturno+","+stupass+","+studob+","+studept+","+stusem+","+stumail+"\n";
+						String stumail=l10.getText();
+						String total=stuname+","+sturno+","+stupass+","+studob+","+studept+","+stusec+","+stusem+","+stumail+"\n";
 						fw.write(total);
 						fw.close();
 					}
@@ -79,6 +82,8 @@ public class AddStud extends JFrame {
 		p1.add(l12);
 		p1.add(l7);
 		p1.add(l8);
+		p1.add(l17);
+		p1.add(l18);
 		p1.add(l13);
 		p1.add(l14);
 		p1.add(l9);
@@ -163,6 +168,20 @@ public class AddStud extends JFrame {
 		m5.setForeground(Color.BLUE.darker());
 		m5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m5.setHorizontalAlignment(JLabel.CENTER);
+		m5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==m5) {
+					JOptionPane.showMessageDialog(null,"You have successfully been logged out !");
+					Home ad=new Home();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
 		
 		p2.add(n1);
 		p2.add(n3);
