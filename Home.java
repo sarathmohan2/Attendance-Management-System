@@ -42,6 +42,19 @@ public class Home extends JFrame implements ActionListener{
 		JButton b4=new JButton("Student");
 		f.add(b4); 
 		add(f);
+		b4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==b4) {
+					StudLout ad=new StudLout();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
 	}
   
 	public void actionPerformed(ActionEvent e)

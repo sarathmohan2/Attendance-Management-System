@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
+import java.io.File;
+import java.util.Scanner;
 
 public class StudLout extends JFrame{
 	
@@ -23,17 +25,33 @@ public class StudLout extends JFrame{
 		l5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==l5) {
-					if(l2.getText().equals("ABC") && l4.getText().equals("123")) {
-						FacLin ad=new FacLin();
-						ad.setSize(600,400);
-					    ad.setLocationRelativeTo(null);
-					    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-						ad.setVisible(true);
-						ad.setResizable(false);
-						dispose();
+					boolean check=true;
+					try {
+						File f1=new File("/home/sarathmohan/Documents/Attendance Management System/StudentList.txt");
+						Scanner rd=new Scanner(f1);
+						rd.useDelimiter("\\n|,");
+						while(rd.hasNext()) {
+							rd.next();
+							String s1=rd.next();
+							String s2=rd.next();
+							rd.nextLine();
+							if(l2.getText().equals(s1) && l4.getText().equals(s2)) {
+								StudLin ad=new StudLin();
+								ad.setSize(600,400);
+							    ad.setLocationRelativeTo(null);
+							    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+								ad.setVisible(true);
+								ad.setResizable(false);
+								dispose();
+								check=false;
+							}
+						}
+						if(check){
+							JOptionPane.showMessageDialog(null, "Wrong Username or Password !");
+						}
 					}
-					else {
-						JOptionPane.showMessageDialog(null, "Wrong Username or Password !");
+					catch(Exception f) {
+						JOptionPane.showMessageDialog(null,f);
 					}
 				}
 			}
