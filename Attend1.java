@@ -119,14 +119,27 @@ public class Attend1 extends JFrame implements ActionListener{
 				}
 			}
 		});
-		JButton m1=new JButton("Attendance");
+		JButton m1=new JButton("Upload Attendance");
 		m1.setForeground(Color.BLUE.darker());
 		m1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		m1.setHorizontalAlignment(JLabel.CENTER);
-		JButton m2=new JButton("Average");
+		JButton m2=new JButton("Student Average");
 		m2.setForeground(Color.BLUE.darker());
 		m2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		m2.setHorizontalAlignment(JLabel.CENTER);		
+		m2.setHorizontalAlignment(JLabel.CENTER);
+		m2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==m2) {
+					FStuAvg ad=new FStuAvg();
+					ad.setSize(600,400);
+				    ad.setLocationRelativeTo(null);
+				    ad.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					ad.setVisible(true);
+					ad.setResizable(false);
+					dispose();
+				}
+			}
+		});
 		JButton m3=new JButton("Logout");
 		m3.setForeground(Color.BLUE.darker());
 		m3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class StudLout extends JFrame{
@@ -36,6 +37,17 @@ public class StudLout extends JFrame{
 							String s2=rd.next();
 							rd.nextLine();
 							if(l2.getText().equals(s1) && l4.getText().equals(s2)) {
+								try {
+									File f2=new File("/home/sarathmohan/Documents/Attendance Management System/StudLin.txt");
+									FileWriter fw=new FileWriter(f2);
+									String sturno=l2.getText();
+									fw.write(sturno);
+									fw.close();
+								}
+								catch(Exception f) {
+									JOptionPane.showMessageDialog(null,f);
+								}
+								
 								StudLin ad=new StudLin();
 								ad.setSize(600,400);
 							    ad.setLocationRelativeTo(null);
