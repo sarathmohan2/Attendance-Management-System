@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.	JFrame;
@@ -14,15 +16,56 @@ import javax.swing.JPanel;
 
 public class VAttend1 extends JFrame implements ActionListener{
 	
+	String user;
+	Float pcnt=new Float(0);
+	Float totcnt=new Float(0);
+	Float att=new Float(0);
+	
 	VAttend1(){
+		
+		try {
+			File f1=new File("/home/sarathmohan/Documents/Attendance Management System/StudLin.txt");
+			Scanner rd=new Scanner(f1);
+			user=rd.next();
+			rd.close();
+			
+			File f2=new File("/home/sarathmohan/Documents/Attendance Management System/Attend2.txt");
+			Scanner sc=new Scanner(f2);
+			sc.useDelimiter("\\n|,");
+			while(sc.hasNextLine()) {
+				if(user.equals(sc.next())) {
+					sc.next();
+					if(sc.next().equals("Present")) {
+						pcnt++;
+						totcnt++;
+					}
+					else
+						totcnt++;
+					sc.nextLine();
+				}
+				else {
+					sc.nextLine();
+				}
+			}
+			sc.close();
+			
+			att=((pcnt/totcnt)*100);
+		}
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null,e);
+		}
+		
+		String stratt=att.toString();
 		
 		JPanel p1=new JPanel(new FlowLayout());
 		p1.setLayout(null);
 		JLabel l1=new JLabel("Attendance Percentage : ");
 		l1.setBounds(10,0,200,100);
-		JLabel l2=new JLabel("80%");
+		JLabel l2=new JLabel(stratt);
+		l2.setBounds(30,30,200,100);
 		
 		p1.add(l1);
+		p1.add(l2);
 		
 		JPanel p2=new JPanel(new GridLayout(6,1,10,5));
 		JLabel n1=new JLabel();
