@@ -23,7 +23,7 @@ public class AdminLout extends JFrame{
 		l5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==l5) {
-					if(l2.getText().equals("ABC") && l4.getText().equals("123")) {
+					if(l2.getText().equals("root") && l4.getText().equals("root")) {
 						AdminLin ad=new AdminLin();
 						ad.setSize(600,400);
 					    ad.setLocationRelativeTo(null);
