@@ -14,9 +14,7 @@ import javax.swing.JPanel;
 public class StudLin extends JFrame{
 	
 	StudLin(){
-		
-		JOptionPane.showMessageDialog(null,"You have successfully logged in !");
-		
+				
 		JPanel p0=new JPanel();
 		JPanel p1=new JPanel(new GridLayout(6,1,10,5));
 		JLabel n1=new JLabel();

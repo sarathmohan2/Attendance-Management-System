@@ -36,6 +36,7 @@ public class FacLout extends JFrame{
 							String s2=rd.next();
 							rd.nextLine();
 							if(l2.getText().equals(s1) && l4.getText().equals(s2)) {
+								JOptionPane.showMessageDialog(null,"You have successfully logged in !");
 								FacLin ad=new FacLin();
 								ad.setSize(600,400);
 							    ad.setLocationRelativeTo(null);

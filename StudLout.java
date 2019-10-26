@@ -47,7 +47,8 @@ public class StudLout extends JFrame{
 								catch(Exception f) {
 									JOptionPane.showMessageDialog(null,f);
 								}
-								
+
+								JOptionPane.showMessageDialog(null,"You have successfully logged in !");
 								StudLin ad=new StudLin();
 								ad.setSize(600,400);
 							    ad.setLocationRelativeTo(null);

@@ -6,11 +6,11 @@ import java.awt.event.*;
 public class Home extends JFrame implements ActionListener{
 	
 	Home(){
-		JPanel f=new JPanel(new FlowLayout(FlowLayout.CENTER,50,10));
+		JPanel p1=new JPanel(new FlowLayout(FlowLayout.CENTER,50,10));
 		JButton b1=new JButton("Home");
-		f.add(b1); 
+		p1.add(b1); 
 		JButton b2=new JButton("Admin");
-		f.add(b2); 
+		p1.add(b2); 
 		b2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==b2) {
@@ -25,7 +25,7 @@ public class Home extends JFrame implements ActionListener{
 			}
 		});
 		JButton b3=new JButton("Faculty");
-		f.add(b3); 
+		p1.add(b3); 
 		b3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==b3) {
@@ -40,8 +40,7 @@ public class Home extends JFrame implements ActionListener{
 			}
 		});
 		JButton b4=new JButton("Student");
-		f.add(b4); 
-		add(f);
+		p1.add(b4); 
 		b4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==b4) {
@@ -55,8 +54,23 @@ public class Home extends JFrame implements ActionListener{
 				}
 			}
 		});
+		
+		JPanel p2=new JPanel();
+		p2.setLayout(null);
+		ImageIcon ic=new ImageIcon("/home/sarathmohan/Documents/Attendance Management System/pic.jpg");
+		JLabel l1=new JLabel(ic);
+		l1.setBounds(10,20,580,350);
+		p2.add(l1);
+		
+		
+		setLayout(null);
+		p1.setBounds(0,0,600,50);
+		p2.setBounds(0,0,600,360);
+		add(p1);
+		add(p2);
+		
 	}
-  
+	
 	public void actionPerformed(ActionEvent e)
 	{
     
